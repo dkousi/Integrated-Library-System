@@ -86,6 +86,7 @@ if (isset($_POST['addup'])) {
     if (empty($edition)) {
         array_push($errors, "Edition is required");
     }
+    
     if (count($errors) == 0) {
         $sql = "INSERT INTO library(bookid,title,author,edition) 
             VALUES('$bookid','$title','$author','$edition')";
