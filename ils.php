@@ -11,6 +11,7 @@ body, html {
   color: #777;
 }
 
+
 .bgimg-1, .bgimg-2, .bgimg-3 {
   position: relative;
   opacity: 0.65;
