@@ -63,7 +63,6 @@ if(count($errors)==0){
         header('location:index.php');
        
     }else{
-       
         header('location:login.php');
         array_push($errors,"Wrong register number/password is entered");
     }
