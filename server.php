@@ -87,12 +87,20 @@ if (isset($_POST['addup'])) {
     }
     
     if (count($errors) == 0) {
+        $query = "SELECT * FROM library WHERE bookid='$bookid'";
+        $result=mysqli_query($db,$query);
+        $records=mysqli_fetch_assoc($result);
+        if(mysqli_num_rows($result)==1){
+            
+        }
+        else{
         $sql = "INSERT INTO library(bookid,title,author,edition) 
             VALUES('$bookid','$title','$author','$edition')";
         mysqli_query($db, $sql);
         $_SESSION['title'] = $title;
         $_SESSION['add']="is added successfully!";
         header('location:add.php');
+        }
     }
 }
 if (isset($_POST['delete'])) {
