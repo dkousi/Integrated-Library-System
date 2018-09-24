@@ -98,6 +98,22 @@ input[type=text]:focus, input[type=password]:focus {
   background: #ff9800;
   color: white;
 }
+table.book {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.book th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+table.book tr:nth-child(even){background-color: #f2f2f2}
+
+table.book th {
+    background-color: #C70039  ;
+    color: white;
+}
 table {
     border-collapse: collapse;
     width: 100%;
@@ -269,7 +285,22 @@ p{
     </div>
     <div class="split left">
     <div class="col-sm-8 text-left"> 
-     
+    <table class="book">
+  <tr>
+    <th>BOOKID</th>
+    <th>TITLE</th>
+    <th>AUTHOR</th>
+    <th>EDITION</th>
+  </tr>
+  <?php  while($row=mysqli_fetch_array($result))  { ?>
+  <tr>
+    <td><?php echo $row['bookid']; ?></td>
+    <td><?php echo $row['title']; ?></td>
+    <td><?php echo $row['author']; ?></td>
+    <td><?php echo $row['edition']; ?></td>
+  </tr>
+  <?php } ?>
+</table>
 
     </div>
    </div>
