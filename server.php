@@ -145,6 +145,14 @@ if (isset($_POST['search4'])) {
     $query = "SELECT * FROM library WHERE edition='$edition'";
     $result=mysqli_query($db,$query);
 }
+if(isset($_GET['update'])){
+    $bookid= mysqli_real_escape_string($db, $_POST['bookid']);
+    $title= mysqli_real_escape_string($db, $_POST['title']);
+    $author= mysqli_real_escape_string($db, $_POST['author']);
+    $edition= mysqli_real_escape_string($db, $_POST['edition']);
+    $query = "UPDATE library SET title='$title' , author='$author' , edition='$edition' WHERE bookid='$bookid'";
+    $result = mysqli_query($db, $query);
+}
 if(isset($_GET['logout'])){
     session_destroy();
     unset($_SESSION['username']);
