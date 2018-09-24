@@ -164,7 +164,7 @@ p{
       <ul class="nav navbar-nav">
         <li><a href="home.php">Home</a></li>
         <li><a href="add.php">ADD BOOKS </a></li>
-        <li><a href="del.php">DELELTE BOOKS </a></li>
+        <li><a href="del.php">DELETE BOOKS </a></li>
         <li class="active"><button onclick="document.getElementById('id01').style.display='block'" class="button">SEARCH BOOKS</button>
 <div id="id01" class="w3-modal">
  <div class="w3-modal-content w3-card-4 w3-animate-zoom">
@@ -190,7 +190,7 @@ p{
      <td><input type="text" placeholder="Enter Book Id" name="bookid" required></td>
     </tr>
 </table>
- <button class="btn warning" name="search" type="submit">SEARCH</button> 
+ <button class="btn warning" name="search1" type="submit">SEARCH</button> 
 </form> 
    </div>
 
@@ -203,7 +203,7 @@ p{
      <td><input type="text" placeholder="Enter Book Title" name="title" required></td>
     </tr>
 </table>
- <button class="btn warning" name="search" type="submit">SEARCH</button> 
+ <button class="btn warning" name="search2" type="submit">SEARCH</button> 
 </form> 
   </div>
 
@@ -216,7 +216,7 @@ p{
      <td><input type="text" placeholder="Enter Book Author" name="author" required></td>
     </tr>
 </table>
- <button class="btn warning" name="search" type="submit">SEARCH</button> 
+ <button class="btn warning" name="search3" type="submit">SEARCH</button> 
 </form> 
   </div>
 
@@ -229,13 +229,13 @@ p{
      <td><input type="text" placeholder="Enter Book Edition" name="edition" required></td>
     </tr>
 </table>
- <button class="btn warning" name="search" type="submit">SEARCH</button> 
+ <button class="btn warning" name="search4" type="submit">SEARCH</button> 
 </form> 
   </div>
  </div>
 </div>
  </li>
-        <li><a href="#">UPDATE BOOKS</a></li>
+        <li><a href="update.php">UPDATE BOOKS</a></li>
         <li><a href="index.php?logout='1'">LOGOUT</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

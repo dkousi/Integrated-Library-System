@@ -51,8 +51,8 @@ if($registernumber!=$password){
 
 print_r($errors); 
 if(count($errors)==0){
-   echo "hello";
-   array_push($errors,"count Errors ===   zero ");
+    echo "hello";
+    array_push($errors,"count Errors ===   zero ");
     $query="SELECT * FROM student WHERE registernumber='$registernumber'";
     $result=mysqli_query($db,$query);
     $records=mysqli_fetch_assoc($result);
@@ -112,6 +112,38 @@ WHERE bookid='$bookid'";
         mysqli_query($db, $sql);
         header('location:del.php');
     }
+}
+if (isset($_POST['search1'])) {
+    $bookid = mysqli_real_escape_string($db, $_POST['bookid']);
+    if (empty($bookid)) {
+        array_push($errors, "Book Id is required");
+    }
+    $query = "SELECT * FROM library WHERE bookid='$bookid'";
+    $result=mysqli_query($db,$query);
+}
+if (isset($_POST['search2'])) {
+    $title = mysqli_real_escape_string($db, $_POST['title']);
+    if (empty($title)) {
+        array_push($errors, "Book Id is required");
+    }
+    $query = "SELECT * FROM library WHERE title='$title'";
+    $result=mysqli_query($db,$query);
+}
+if (isset($_POST['search3'])) {
+    $author = mysqli_real_escape_string($db, $_POST['author']);
+    if (empty($author)) {
+        array_push($errors, "Book Id is required");
+    }
+    $query = "SELECT * FROM library WHERE author='$author'";
+    $result=mysqli_query($db,$query);
+}
+if (isset($_POST['search4'])) {
+    $edition = mysqli_real_escape_string($db, $_POST['edition']);
+    if (empty($edition)) {
+        array_push($errors, "Book Id is required");
+    }
+    $query = "SELECT * FROM library WHERE edition='$edition'";
+    $result=mysqli_query($db,$query);
 }
 if(isset($_GET['logout'])){
     session_destroy();

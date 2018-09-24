@@ -52,7 +52,17 @@
   color: white;
   font-size: 30px;
 }
+.warning {
+    margin: 2px 310px;
+    cursor: pointer;
+  border-color: #ff9800;
+  color: orange;
+}
 
+.warning:hover {
+  background: #ff9800;
+  color: white;
+}
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
@@ -70,12 +80,12 @@
     }
     form{
     margin: 12px;
-    width: 100%;
+    width: 80%;
     border-radius: 15px;
     border: 0px solid rgb(35, 228, 228);
     background-color : rgba(148, 152, 155, 0.479);
 }
- input[type=text] {
+input[type=text] {
     width: 85%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -98,30 +108,34 @@ th, td {
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
-.warning {
-  margin: 2px 310px;
-  cursor: pointer;
-  border-color: #ff9800;
-  color: orange;
+
+.error {
+    width:92%;
+    margin:0 auto;
+    padding:10px;
+    border:1px solid  #a94442;
+    color: #a94442;
+    background: #f2dede;
+    border-radius: 5px;
+    text-align:left;
 }
 
-.warning:hover {
-  background: #ff9800;
-  color: white;
-}
+
 p{
     text-align:center;
 }
     /* Set black background color, white text and some padding */
     .footer {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
       background-color: #555;
       color: white;
       padding: 15px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: 50px;
     }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -152,10 +166,10 @@ p{
    
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="home.php">Home</a></li>
+        <li><a href="home.php">Home</a></li>
         <li><a href="add.php">ADD BOOKS </a></li>
-        <li><a href="del.php">DELETE BOOKS </a></li>
-        <li><button onclick="document.getElementById('id01').style.display='block'" class="button">SEARCH BOOKS</button>
+        <li class="active"><a href="del.php">DELETE BOOKS </a></li>
+       <li><button onclick="document.getElementById('id01').style.display='block'" class="button">SEARCH BOOKS</button>
 <div id="id01" class="w3-modal">
  <div class="w3-modal-content w3-card-4 w3-animate-zoom">
   <header class="w3-container w3-blue"> 
@@ -163,6 +177,7 @@ p{
    class="w3-button w3-blue w3-xlarge w3-display-topright">&times;</span>
    <h2>SEARCH BOOKS BY</h2>
   </header>
+
   <div class="w3-bar w3-border-bottom">
    <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'London')">Book Id</button>
    <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Paris')">Title</button>
@@ -223,7 +238,7 @@ p{
   </div>
  </div>
 </div> </li>
-        <li><a href="update.php">UPDATE BOOKS</a></li>
+        <li class="active"><a href="update.php">UPDATE BOOKS</a></li>
         <li><a href="index.php?logout='1'">LOGOUT</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -240,7 +255,7 @@ p{
             <?php endif ?>
             <?php if (isset($_SESSION['username'])) : ?>
             <div class="chip">
-              <img src="kk.jpg" alt="Person" width="96" height="96">
+            <img src="kk.jpg" alt="Person" width="96" height="96">
               <?php echo $_SESSION['username']; ?>
              </div>
             <?php endif ?>
@@ -257,13 +272,19 @@ p{
     </div>
     <div class="split left">
     <div class="col-sm-8 text-left"> 
-      <h1>Welcome</h1>
-      <p>The Library has developed an excellent collection of books, journals and non-book material in science, engineering, technology, humanities, social sciences and management. It maintains separate collections of Reference Books, Bound volumes of journals, Technical Reports, Thesis, Video Cassettes, Compact Discs and Microforms. The library is using Autolib OPAC (Online Public Access Catalogue), wherein the users can search the Library Online Catalogue by Author's name, title, subject, and keywords available on the campus LAN</p>
-      <hr>
+    <form method="post" action="search.php" style="border:1px solid rgb(16, 211, 224)">
+    <?php include('errors.php'); ?>
+    <table><br>
+    <tr>
+     <td><label><b>BOOKID</b></label></td>
+     <td><input type="text" placeholder="Enter Book Id" name="bookid" required></td>
+    </tr>
+</table>
+ <button class="btn warning" name="search" type="submit">SEARCH</button> 
+</form> 
     </div>
    </div>
    </div>
-
 <script>
 document.getElementsByClassName("tablink")[0].click();
 
@@ -282,7 +303,6 @@ function openCity(evt, cityName) {
 }
 </script>
  
-
 <div class="footer">
   <p>Footer</p>
 </div>
