@@ -272,7 +272,7 @@ p{
     </div>
     <div class="split left">
     <div class="col-sm-8 text-left"> 
-    <form method="post" action="search.php" style="border:1px solid rgb(16, 211, 224)">
+    <form method="post" action="update1.php" style="border:1px solid rgb(16, 211, 224)">
     <?php include('errors.php'); ?>
     <table><br>
     <tr>
@@ -280,7 +280,7 @@ p{
      <td><input type="text" placeholder="Enter Book Id" name="bookid" required></td>
     </tr>
 </table>
- <button class="btn warning" name="search" type="submit">SEARCH</button> 
+ <button class="btn warning" name="search1" type="submit">SEARCH</button> 
 </form>  
     </div>
    </div>

@@ -98,6 +98,22 @@ input[type=text]:focus, input[type=password]:focus {
     background-color: #ddd;
     outline: none;
 }
+table.book {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.book th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+table.book tr:nth-child(even){background-color: #f2f2f2}
+
+table.book th {
+    background-color: #C70039  ;
+    color: white;
+}
 table {
     border-collapse: collapse;
     width: 100%;
@@ -168,7 +184,7 @@ p{
       <ul class="nav navbar-nav">
         <li><a href="home.php">Home</a></li>
         <li><a href="add.php">ADD BOOKS </a></li>
-        <li class="active"><a href="del.php">DELETE BOOKS </a></li>
+        <li><a href="del.php">DELETE BOOKS </a></li>
        <li><button onclick="document.getElementById('id01').style.display='block'" class="button">SEARCH BOOKS</button>
 <div id="id01" class="w3-modal">
  <div class="w3-modal-content w3-card-4 w3-animate-zoom">
@@ -272,16 +288,72 @@ p{
     </div>
     <div class="split left">
     <div class="col-sm-8 text-left"> 
-    <form method="post" action="search.php" style="border:1px solid rgb(16, 211, 224)">
+    <form method="post" action="update1.php" style="border:1px solid rgb(16, 211, 224)">
     <?php include('errors.php'); ?>
+    <?php  while($row=mysqli_fetch_array($result))  { ?>
     <table><br>
     <tr>
      <td><label><b>BOOKID</b></label></td>
-     <td><input type="text" placeholder="Enter Book Id" name="bookid" required></td>
+     <td><input type="text" placeholder="Enter Book Id" name="bookid" value="<?php echo $row['bookid']; ?>" required></td>
     </tr>
 </table>
- <button class="btn warning" name="search" type="submit">SEARCH</button> 
+ <button class="btn warning" name="search1" type="submit">SEARCH</button> 
 </form> 
+    <table class="book">
+  <tr>
+    <th>BOOKID</th>
+    <th>TITLE</th>
+    <th>AUTHOR</th>
+    <th>EDITION</th>
+    <th>OPTION</th>
+  </tr>
+  <tr>
+    <td><?php echo $row['bookid']; ?></td>
+    <td><?php echo $row['title']; ?></td>
+    <td><?php echo $row['author']; ?></td>
+    <td><?php echo $row['edition']; ?></td>
+    <td>  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog modal-lm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><b>Update Book</b></h4>
+      </div>
+      <div class="modal-body">
+      <form method="post" action="update.php" style="border:1px solid rgb(16, 211, 224)">
+    <?php include('errors.php'); ?>
+    <table class="w3-table"><br>
+    <tr>
+     <td><label><b>BOOK ID</b></label></td>
+     <td><input type="text" placeholder="Enter Book Id" name="bookid" value="<?php echo $row['bookid']; ?>" required></td>
+    </tr>
+    <tr>
+     <td><label><b>TITLE</b></label></td>
+     <td><input type="text" placeholder="Enter Title" name="title" value="<?php echo $row['title']; ?>" required></td>
+    </tr>
+    <tr>
+     <td><label><b>AUTHOR</b></label></td>
+     <td><input type="text" placeholder="Enter Author Name" name="author" value="<?php echo $row['author']; ?>" required></td>
+    </tr>
+    <tr>
+      <td><label><b>EDITION</b></label></td>
+     <td><input type="text" placeholder="Enter Edition" name="edition" value="<?php echo $row['edition']; ?>" required></td>
+    </tr>
+   
+</table>
+ <button class="btn warning" name="update" type="submit">Update</button> 
+</form> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div></td>
+  </tr>
+  <?php } ?>
+</table>
     </div>
    </div>
    </div>

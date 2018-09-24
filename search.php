@@ -80,7 +80,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 .button {
     background-color: black;
-    color:  rgb(169,169,169);
+    color:  white;
     padding: 14px;
     border: none;
     font-size: 16px;

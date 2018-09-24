@@ -168,7 +168,7 @@ p{
       <ul class="nav navbar-nav">
         <li><a href="home.php">Home</a></li>
         <li><a href="add.php">ADD BOOKS </a></li>
-        <li class="active"><a href="del.php">DELETE BOOKS </a></li>
+        <li class="active"><a href="del.php">DELETE BOOKS</a></li>
        <li><button onclick="document.getElementById('id01').style.display='block'" class="button">SEARCH BOOKS</button>
 <div id="id01" class="w3-modal">
  <div class="w3-modal-content w3-card-4 w3-animate-zoom">
