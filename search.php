@@ -12,6 +12,17 @@
   <link rel="stylesheet" href="common.css">
   <script src="./jquery.min.js"></script>
   <script src="./bootstrap.min.js"></script>
+  <style>
+   .button {
+    background-color: black;
+    color:  white;
+    padding: 14px;
+    border: none;
+    font-size: 16px;
+    text-align:center;
+}
+.button:hover{ color: white;}
+</style>
 </head>
 <body>
     <div class="header">

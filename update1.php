@@ -177,7 +177,7 @@ alert("welcome,you are successfully logined in!");
       <div class="modal-body">
       <form method="post" action="update.php" style="border:1px solid rgb(16, 211, 224)">
     <?php include('errors.php'); ?>
-    <table class="upd">
+    <table><br>
     <tr>
      <td><label><b>BOOK ID</b></label></td>
      <td><input type="text" placeholder="Enter Book Id" name="bookid" value="<?php echo $row['bookid']; ?>" required></td>

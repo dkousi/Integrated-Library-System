@@ -90,7 +90,7 @@ table.book th, td {
     text-align: left;
     padding: 8px;
 }
-table.book tr:nth-child(even){background-color: #f2f2f2}
+table.book tr{background-color: #dad8d8}
 table.book th {
     background-color: #C70039  ;
     color: white;
