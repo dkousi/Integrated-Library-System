@@ -9,158 +9,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./bootstrap.min.css">
   <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="common.css">
   <script src="./jquery.min.js"></script>
   <script src="./bootstrap.min.js"></script>
-  <style>
-  nav {
-  overflow: hidden;
-  background-color: #333;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
- .button {
-    background-color: black;
-    color:  rgb(169,169,169);
-    padding: 14px;
-    border: none;
-    font-size: 16px;
-    text-align:center;
-}
-.button:hover{ color: white;}
-  .chip {
-    display: inline-block;
-    padding: 0 25px;
-    height: 30px;
-    font-size: 16px;
-    line-height: 30px;
-    border-radius: 25px;
-    background-color: #f1f1f1;
-}
-
-.chip img {
-    float: left;
-    margin: 0 10px 0 -25px;
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-}
-.header {
-  padding: 60px;
-  text-align: center;
-  background: #1abc9c;
-  color: white;
-  font-size: 30px;
-}
-.warning {
-  margin: 2px 310px;
-  cursor: pointer;
-  border-color: #ff9800;
-  color: orange;
-}
-
-.warning:hover {
-  background: #ff9800;
-  color: white;
-}
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    form{
-    margin: 12px;
-    width: 80%;
-    border-radius: 15px;
-    border: 0px solid rgb(35, 228, 228);
-    background-color : rgba(148, 152, 155, 0.479);
-}
-input[type=text] {
-    width: 85%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-}
-
-input[type=text]:focus, input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
-}
-table.book {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-table.book th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-table.book th {
-    background-color: #C70039  ;
-    color: white;
-}
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    padding: 1px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-.error {
-    width:92%;
-    margin:0 auto;
-    padding:10px;
-    border:1px solid  #a94442;
-    color: #a94442;
-    background: #f2dede;
-    border-radius: 5px;
-    text-align:left;
-}
-
-
-p{
-    text-align:center;
-}
-    /* Set black background color, white text and some padding */
-    .footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-      width: 100%;
-      text-align: center;
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      height: 50px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
-    }
-  </style>
 </head>
 <body>
     <div class="header">
@@ -326,7 +177,7 @@ alert("welcome,you are successfully logined in!");
       <div class="modal-body">
       <form method="post" action="update.php" style="border:1px solid rgb(16, 211, 224)">
     <?php include('errors.php'); ?>
-    <table>
+    <table class="upd">
     <tr>
      <td><label><b>BOOK ID</b></label></td>
      <td><input type="text" placeholder="Enter Book Id" name="bookid" value="<?php echo $row['bookid']; ?>" required></td>
@@ -344,7 +195,7 @@ alert("welcome,you are successfully logined in!");
      <td><input type="text" placeholder="Enter Edition" name="edition" value="<?php echo $row['edition']; ?>" required></td>
      <?php } ?>  </tr>
 </table>
- <button class="btn warning" name="update" style="margin: 1px 200px;"type="submit">Update</button> 
+ <button class="btn warning" name="update" style="margin: 1px 240px;"type="submit">Update</button> 
 </form> 
       </div>
       <div class="modal-footer">
@@ -374,11 +225,6 @@ function openCity(evt, cityName) {
   }
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.classList.add("w3-light-grey");
-}
-</script>
- <script>
- function error(){
-alert("welcome,you are successfully logined in!");
 }
 </script>
 <div class="footer">
