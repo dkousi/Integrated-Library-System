@@ -7,8 +7,11 @@
   </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./bootstrap.min.css">
   <link rel="stylesheet" href="w3.css">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel="stylesheet" href="./bootstrap.min.css">
   <script src="./jquery.min.js"></script>
   <script src="./bootstrap.min.js"></script>
   <style>
@@ -19,7 +22,7 @@
   top: 0;
   width: 100%;
 }
- .button {
+   .button {
     background-color: black;
     color:  rgb(169,169,169);
     padding: 14px;
@@ -93,7 +96,6 @@ input[type=text] {
     border: none;
     background: #f1f1f1;
 }
-
 input[type=text]:focus, input[type=password]:focus {
     background-color: #ddd;
     outline: none;
@@ -167,9 +169,9 @@ p{
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="home.php">Home</a></li>
-        <li><a href="add.php">ADD BOOKS </a></li>
-        <li class="active"><a href="del.php">DELETE BOOKS</a></li>
-       <li><button onclick="document.getElementById('id01').style.display='block'" class="button">SEARCH BOOKS</button>
+        <li class="active"><a href="add.php">ADD BOOKS </a></li>
+        <li><a href="del.php">DELETE BOOKS </a></li>
+       <li> <button onclick="document.getElementById('id01').style.display='block'" class="button">SEARCH BOOKS</button>
 <div id="id01" class="w3-modal">
  <div class="w3-modal-content w3-card-4 w3-animate-zoom">
   <header class="w3-container w3-blue"> 
@@ -238,6 +240,7 @@ p{
   </div>
  </div>
 </div> </li>
+ 
         <li><a href="update.php">UPDATE BOOKS</a></li>
         <li><a href="index.php?logout='1'">LOGOUT</a></li>
       </ul>
@@ -272,19 +275,36 @@ p{
     </div>
     <div class="split left">
     <div class="col-sm-8 text-left"> 
-    <form method="post" action="del.php" style="border:1px solid rgb(16, 211, 224)">
+    <form method="post" action="add.php" style="border:1px solid rgb(16, 211, 224)">
     <?php include('errors.php'); ?>
     <table><br>
     <tr>
      <td><label><b>BOOK ID</b></label></td>
      <td><input type="text" placeholder="Enter Book Id" name="bookid" required></td>
     </tr>
+    <tr>
+     <td><label><b>TITLE</b></label></td>
+     <td><input type="text" placeholder="Enter Title" name="title" required></td>
+    </tr>
+    <tr>
+     <td><label><b>AUTHOR</b></label></td>
+     <td><input type="text" placeholder="Enter Author Name" name="author" required></td>
+    </tr>
+    <tr>
+      <td><label><b>EDITION</b></label></td>
+     <td><input type="text" placeholder="Enter Edition" name="edition" required></td>
+    </tr>
+   
 </table>
- <button class="btn warning" name="delete" type="submit">Delete</button> 
+ <button class="btn warning" name="addup" type="submit">ADD</button> 
 </form> 
     </div>
    </div>
    </div>
+<script>
+alert("Book Id is already added");
+</script>
+
 <script>
 document.getElementsByClassName("tablink")[0].click();
 
@@ -303,6 +323,7 @@ function openCity(evt, cityName) {
 }
 </script>
  
+
 <div class="footer">
   <p>Footer</p>
 </div>

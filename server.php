@@ -91,7 +91,7 @@ if (isset($_POST['addup'])) {
         $result=mysqli_query($db,$query);
         $records=mysqli_fetch_assoc($result);
         if(mysqli_num_rows($result)==1){
-            
+            header('location:add1.php');
         }
         else{
         $sql = "INSERT INTO library(bookid,title,author,edition) 
