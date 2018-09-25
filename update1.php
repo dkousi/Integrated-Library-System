@@ -53,8 +53,8 @@
   font-size: 30px;
 }
 .warning {
-    margin: 2px 310px;
-    cursor: pointer;
+  margin: 2px 310px;
+  cursor: pointer;
   border-color: #ff9800;
   color: orange;
 }
@@ -107,8 +107,6 @@ table.book th, td {
     text-align: left;
     padding: 8px;
 }
-
-table.book tr:nth-child(even){background-color: #f2f2f2}
 
 table.book th {
     background-color: #C70039  ;
@@ -290,6 +288,11 @@ p{
     <div class="col-sm-8 text-left"> 
     <form method="post" action="update1.php" style="border:1px solid rgb(16, 211, 224)">
     <?php include('errors.php'); ?>
+    <?php  if(mysqli_num_rows($result)==0){ ?>
+ <script>
+alert("welcome,you are successfully logined in!");
+</script>
+    <?php } ?>
     <?php  while($row=mysqli_fetch_array($result))  { ?>
     <table><br>
     <tr>
@@ -297,7 +300,7 @@ p{
      <td><input type="text" placeholder="Enter Book Id" name="bookid" value="<?php echo $row['bookid']; ?>" required></td>
     </tr>
 </table>
- <button class="btn warning" name="search1" type="submit">SEARCH</button> 
+ <button class="btn warning" name="search" type="submit">SEARCH</button> 
 </form> 
     <table class="book">
   <tr>
@@ -323,7 +326,7 @@ p{
       <div class="modal-body">
       <form method="post" action="update.php" style="border:1px solid rgb(16, 211, 224)">
     <?php include('errors.php'); ?>
-    <table><br>
+    <table>
     <tr>
      <td><label><b>BOOK ID</b></label></td>
      <td><input type="text" placeholder="Enter Book Id" name="bookid" value="<?php echo $row['bookid']; ?>" required></td>
@@ -339,10 +342,9 @@ p{
     <tr>
       <td><label><b>EDITION</b></label></td>
      <td><input type="text" placeholder="Enter Edition" name="edition" value="<?php echo $row['edition']; ?>" required></td>
-    </tr>
-    <?php } ?>
+     <?php } ?>  </tr>
 </table>
- <button class="btn warning" name="update" type="submit">Update</button> 
+ <button class="btn warning" name="update" style="margin: 1px 200px;"type="submit">Update</button> 
 </form> 
       </div>
       <div class="modal-footer">
@@ -374,7 +376,11 @@ function openCity(evt, cityName) {
   evt.currentTarget.classList.add("w3-light-grey");
 }
 </script>
- 
+ <script>
+ function error(){
+alert("welcome,you are successfully logined in!");
+}
+</script>
 <div class="footer">
   <p>Footer</p>
 </div>

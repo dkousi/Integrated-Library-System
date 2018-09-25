@@ -153,7 +153,19 @@ if (isset($_POST['search4'])) {
     $query = "SELECT * FROM library WHERE edition='$edition'";
     $result=mysqli_query($db,$query);
 }
-if(isset($_GET['update'])){
+if (isset($_POST['search'])) {
+    $bookid = mysqli_real_escape_string($db, $_POST['bookid']);
+    if (empty($bookid)) {
+        array_push($errors, "Book Id is required");
+    }
+    $query = "SELECT * FROM library WHERE bookid='$bookid'";
+    $result=mysqli_query($db,$query);
+    if(mysqli_num_rows($result)==0){
+        header('location:update.php');
+        array_push($errors, "Book Id is not registered");
+    }
+}
+if(isset($_POST['update'])){
     $bookid= mysqli_real_escape_string($db, $_POST['bookid']);
     $title= mysqli_real_escape_string($db, $_POST['title']);
     $author= mysqli_real_escape_string($db, $_POST['author']);

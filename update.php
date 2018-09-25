@@ -280,7 +280,7 @@ p{
      <td><input type="text" placeholder="Enter Book Id" name="bookid" required></td>
     </tr>
 </table>
- <button class="btn warning" name="search1" type="submit">SEARCH</button> 
+ <button class="btn warning" name="search" type="submit">SEARCH</button> 
 </form>  
     </div>
    </div>
