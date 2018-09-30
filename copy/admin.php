@@ -9,7 +9,7 @@ if(isset($_POST['login']))
 {
 
 $username=$_POST['username'];
-$password=md5($_POST['password']);
+$password=$_POST['password'];
 $sql ="SELECT UserName,Password FROM admin WHERE UserName=:username and Password=:password";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':username', $username, PDO::PARAM_STR);
@@ -44,9 +44,9 @@ echo "<script>alert('Invalid Details');</script>";
   <div class="container-fluid">
     
     <ul class="nav navbar-nav navbar-right">
-      <li class="active"><a href="admin.php"> Admin</a></li>
-      <li><a href="sign.php"> Sign Up</a></li>
-      <li><a href="index.php"> Login</a></li>
+      <li class="active"><a href="admin.php"> Admin Login</a></li>
+      <li><a href="sign.php">User Sign Up</a></li>
+      <li><a href="index.php"> User Login</a></li>
     </ul>
   </div>
 </nav>
@@ -91,6 +91,6 @@ echo "<script>alert('Invalid Details');</script>";
 </div>
 </div>
 </div>
-
+<?php include('includes/footer.php'); ?>
 </body>
 </html>

@@ -1,3 +1,34 @@
+<?php 
+session_start();
+include('includes/config.php');
+error_reporting(0);
+if(isset($_POST['signup']))
+{   
+$fullname=$_POST['fullname'];
+$registerno=$_POST['registerno']; 
+$password=$_POST['password']; 
+$status=1;
+$sql="INSERT INTO  tblstudent(fullName,registerno,Password,status) VALUES (:fullname,:registerno,:password,:status)";
+$query = $dbh->prepare($sql);
+$query->bindParam(':fullname',$fullname,PDO::PARAM_STR);
+$query->bindParam(':registerno',$registerno,PDO::PARAM_STR);
+$query->bindParam(':password',$password,PDO::PARAM_STR);
+$query->bindParam(':status',$status,PDO::PARAM_STR);
+$query->execute();
+$lastInsertId = $dbh->lastInsertId();
+if($lastInsertId)
+{
+echo '<script>alert("Your Registration successfull")</script>';
+}
+else 
+{
+echo "<script>alert('Something went wrong. Please try again');</script>";
+}
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +48,9 @@
   <div class="container-fluid">
     
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="admin.php"> Admin</a></li>
-      <li class="active"><a href="sign.php"> Sign Up</a></li>
-      <li><a href="index.php"> Login</a></li>
+      <li><a href="admin.php"> Admin Login</a></li>
+      <li class="active"><a href="sign.php"> UserSign Up</a></li>
+      <li><a href="index.php">User Login</a></li>
     </ul>
   </div>
 </nav>
@@ -44,13 +75,7 @@
 <form name="signup" method="post" onSubmit="return valid();">
 <div class="form-group">
 <label>Enter Full Name</label>
-<input class="form-control" type="text" name="fullanme" autocomplete="off" required />
-</div>
-
-
-<div class="form-group">
-<label>Mobile Number :</label>
-<input class="form-control" type="text" name="mobileno" maxlength="10" autocomplete="off" required />
+<input class="form-control" type="text" name="fullname" autocomplete="off" required />
 </div>
                                         
 <div class="form-group">
@@ -79,6 +104,6 @@
 </div>
 </div>
 </div>
-
+<?php include('includes/footer.php'); ?>
 </body>
 </html>

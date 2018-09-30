@@ -7,11 +7,11 @@ $_SESSION['login']='';
 }
 if(isset($_POST['login']))
 {
-$email=$_POST['emailid'];
-$password=md5($_POST['password']);
-$sql ="SELECT EmailId,Password,StudentId,Status FROM tblstudents WHERE EmailId=:email and Password=:password";
+$registerno=$_POST['registerno'];
+$password=$_POST['password'];
+$sql ="SELECT Password,registerno,status FROM tblstudent WHERE registerno=:registerno and Password=:password";
 $query= $dbh -> prepare($sql);
-$query-> bindParam(':email', $email, PDO::PARAM_STR);
+$query-> bindParam(':registerno', $registerno, PDO::PARAM_STR);
 $query-> bindParam(':password', $password, PDO::PARAM_STR);
 $query-> execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -19,10 +19,10 @@ $results=$query->fetchAll(PDO::FETCH_OBJ);
 if($query->rowCount() > 0)
 {
  foreach ($results as $result) {
- $_SESSION['stdid']=$result->StudentId;
-if($result->Status==1)
+ $_SESSION['stdid']=$result->registerno;
+if($result->status==1)
 {
-$_SESSION['login']=$_POST['emailid'];
+$_SESSION['login']=$_POST['registerno'];
 echo "<script type='text/javascript'> document.location ='dashboard.php'; </script>";
 } else {
 echo "<script>alert('Your Account Has been blocked .Please contact admin');</script>";
@@ -56,9 +56,9 @@ echo "<script>alert('Invalid Details');</script>";
   <div class="container-fluid">
     
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="admin.php"> Admin</a></li>
-      <li><a href="sign.php"> Sign Up</a></li>
-      <li class="active"><a href="index.php"> Login</a></li>
+      <li><a href="admin.php"> Admin Login</a></li>
+      <li><a href="sign.php"> UserSign Up</a></li>
+      <li class="active"><a href="index.php">User Login</a></li>
     </ul>
   </div>
 </nav>
@@ -94,7 +94,7 @@ echo "<script>alert('Invalid Details');</script>";
 
  <div class="form-group"> 
 
- <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="signup.php">Not Register Yet</a>
+ <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="sign.php">Not Register Yet</a>
 </form>
  </div>
 </div>
@@ -103,6 +103,6 @@ echo "<script>alert('Invalid Details');</script>";
 </div>
 </div>
 </div>
-
+<?php include('includes/footer.php'); ?>
 </body>
 </html>
